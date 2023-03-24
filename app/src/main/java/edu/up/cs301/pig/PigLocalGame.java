@@ -69,6 +69,7 @@ public class PigLocalGame extends LocalGame {
             //Makes Random Number 0-5
             Random die = new Random();
             int dieRoller = die.nextInt(6);
+            ugh.dieSetter(dieRoller);
 
             //Sets running total to 0 if 0, adds die roll plus 1 if 1-5
             if(dieRoller == 0) {

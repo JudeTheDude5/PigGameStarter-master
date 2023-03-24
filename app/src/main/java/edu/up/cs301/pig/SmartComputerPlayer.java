@@ -7,18 +7,12 @@ import edu.up.cs301.game.actionMsg.GameAction;
 import edu.up.cs301.game.infoMsg.GameInfo;
 import edu.up.cs301.game.util.Tickable;
 
-/**
- * An AI for Pig
- *
- * @author Andrew M. Nuxoll
- * @version August 2015
- */
-public class PigComputerPlayer extends GameComputerPlayer {
+public class SmartComputerPlayer extends GameComputerPlayer {
 
     /**
      * ctor does nothing extra
      */
-    public PigComputerPlayer(String name) {
+    public SmartComputerPlayer(String name) {
         super(name);
     }
 
@@ -37,26 +31,25 @@ public class PigComputerPlayer extends GameComputerPlayer {
 
         try {
             Thread.sleep(1000);
-        if(recieve.turnGetter() != this.playerNum) {
-            return;
-        }
-        else {
-            if(z == 0) {
-                PigHoldAction play = new PigHoldAction(this);
-                game.sendAction(play);
-                //Thread.sleep(1000);
+            if(recieve.turnGetter() != this.playerNum) {
+                return;
             }
             else {
-                PigRollAction play = new PigRollAction(this);
-                game.sendAction(play);
-                //Thread.sleep(1000);
+                if(z == 0) {
+                    PigHoldAction play = new PigHoldAction(this);
+                    game.sendAction(play);
+                    //Thread.sleep(1000);
+                }
+                else {
+                    PigRollAction play = new PigRollAction(this);
+                    game.sendAction(play);
+                    //Thread.sleep(1000);
+                }
             }
-        }
 
         }
         catch (Exception e) {
 
         }
     }//receiveInfo
-
 }
